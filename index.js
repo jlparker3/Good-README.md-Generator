@@ -9,20 +9,16 @@ inquirer
             message: 'What is the name of your application?',
             name: 'name',
         },
-        {
-            type: 'input',
-            message: 'What is the link to your application?',
-            name: 'link',
-        },   
+        //WILL ADD IN FOR LIVE SITE APPLICATIONS
+        // {
+        //     type: 'input',
+        //     message: 'What is the link to your application?',
+        //     name: 'link',
+        // },   
         {
             type: 'input',
             message: 'Please provide the license you used for this project',
             name: 'license',
-        },
-        {
-            type: 'input',
-            message: 'Would you like to include any badge links?',
-            name: 'badge',
         },
         {
             type: 'input',
@@ -36,7 +32,7 @@ inquirer
         },
         {
             type: 'input',
-            message: 'How can a user install the application?',
+            message: 'What command should be run to install the application? (npm i)',
             name: 'installation',
         },   
         {
@@ -51,7 +47,7 @@ inquirer
         }, 
         {
             type: 'input',
-            message: 'Please provide the application tests',
+            message: 'What command should be run to run application tests (npm test)',
             name: 'test',
         },
         {
@@ -68,6 +64,11 @@ inquirer
             type: 'input',
             message: 'What is your github username?',
             name: 'github',
+        }, 
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email',
         }  
        
 
@@ -76,9 +77,7 @@ inquirer
     
 const README = `
 # Name of application
-    ${response.name}
-## Link to application
-    ${response.link}   
+    ${response.name} 
 ##  Description
     ${response.description}
 ## Purpose
@@ -91,6 +90,7 @@ const README = `
    -[License](#license)<br>
    -[Tests](#test)<br>
    -[Github](#github)<br>
+   -[Email](#email)<br>
 
 
 
@@ -110,6 +110,8 @@ const README = `
     ${response.experience}
 ## GitHub
     ${response.github}
+## Email
+    ${response.email}   
     `
 
         fs.writeFile(`${response.name}.README.md`, README, (err) =>
